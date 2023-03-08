@@ -16,17 +16,12 @@
 
 # %%
 import os
-import re
 import glob
 
 import ttkbootstrap as ttkbst
 from ttkbootstrap.constants import *
-from ttkbootstrap import Style
 import tkinter as tk
-import tkinter.font as tkfont
-import tkinter.messagebox as msgbox
 import tkinter.scrolledtext as st
-from datetime import datetime
 
 import threading
 
@@ -34,9 +29,7 @@ from openpyxl import load_workbook
 from openpyxl.styles import Font, Alignment
 from openpyxl.styles.numbers import builtin_format_code
 
-import numpy as np
 import pandas as pd
-import math
 
 import Common_function as func
 import LSI_get_data as getdata
