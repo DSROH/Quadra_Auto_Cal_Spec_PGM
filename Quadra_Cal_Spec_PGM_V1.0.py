@@ -65,14 +65,18 @@ def WB_Format(filename):
         for i in range(2, row_max + 1, 1):
             for j in range(3, col_max + 1, 1):
                 wb[sheet].cell(row=i, column=j).font = font_style
-                wb[sheet].cell(row=i, column=j).alignment = Alignment(horizontal="right")
+                wb[sheet].cell(row=i, column=j).alignment = Alignment(
+                    horizontal="right"
+                )
                 wb[sheet].cell(row=i, column=j).number_format = "#,##0.0"
                 # wb[sheet].cell(row=i, column=j).number_format = builtin_format_code(2)
     wb.save(filename)
 
 
 # %%
-Win_GUI = ttkbst.Window(title="S23 Quadra DM3 EUR Auto Cal Spec PGM V1.0", themename="cosmo")
+Win_GUI = ttkbst.Window(
+    title="S23 Quadra DM3 EUR Auto Cal Spec PGM V1.0", themename="cosmo"
+)
 Win_GUI.attributes("-topmost", True)
 Win_GUI.geometry("1410x565")  # py : 1407x560 ipynb : 1635x670
 # Win_GUI.option_add("*Font", "Consolas 10")
@@ -143,24 +147,34 @@ Win_GUI.bind("<F2>", lambda event: [func.browse_spc_path(txt_spc_path, text_area
 
 # %%
 # 옵션 선택 frame
-radio_Btn_frame = ttkbst.Labelframe(Left_frame, text=" Select Options ", bootstyle=PRIMARY)
+radio_Btn_frame = ttkbst.Labelframe(
+    Left_frame, text=" Select Options ", bootstyle=PRIMARY
+)
 radio_Btn_frame.place(x=5, y=225, width=615, height=100)
 
 Option_var = ttkbst.IntVar()
 
-btn_Option1 = ttkbst.Radiobutton(radio_Btn_frame, text="Cal Spec 조정", value=1, variable=Option_var)
+btn_Option1 = ttkbst.Radiobutton(
+    radio_Btn_frame, text="Cal Spec 조정", value=1, variable=Option_var
+)
 btn_Option1.place(x=10, y=10, width=100, height=30)
 
-btn_Option2 = ttkbst.Radiobutton(radio_Btn_frame, text="Cal 산포 적용", value=2, variable=Option_var)
+btn_Option2 = ttkbst.Radiobutton(
+    radio_Btn_frame, text="Cal 산포 적용", value=2, variable=Option_var
+)
 btn_Option2.place(x=120, y=10, width=100, height=30)
 btn_Option2.invoke()
 
-btn_Option3 = ttkbst.Radiobutton(radio_Btn_frame, text="MTM Default Cal Data", value=3, variable=Option_var)
+btn_Option3 = ttkbst.Radiobutton(
+    radio_Btn_frame, text="MTM Default Cal Data", value=3, variable=Option_var
+)
 btn_Option3.place(x=230, y=10, width=140, height=30)
 
 Save_data_var = ttkbst.BooleanVar()
 
-chkbox = ttkbst.Checkbutton(radio_Btn_frame, text="Save Data to Excel", variable=Save_data_var)
+chkbox = ttkbst.Checkbutton(
+    radio_Btn_frame, text="Save Data to Excel", variable=Save_data_var
+)
 chkbox.place(x=480, y=10, width=120, height=30)
 
 
@@ -178,12 +192,16 @@ def Dclick():
 
 # Cal log 파일 선택
 btn_add_file1 = ttkbst.Button(
-    list_frame, text="Daseul log 추가 (F1)", command=lambda: [func.Common_daseul_log(list_file), Dclick()]
+    list_frame,
+    text="Daseul log 추가 (F1)",
+    command=lambda: [func.Common_daseul_log(list_file), Dclick()],
 )
 btn_add_file1.place(x=0, y=3, width=135, height=35)
 
 btn_add_file2 = ttkbst.Button(
-    list_frame, text="MTM log 추가 (F4)", command=lambda: [func.Common_mtm_log(list_file), Mclick()]
+    list_frame,
+    text="MTM log 추가 (F4)",
+    command=lambda: [func.Common_mtm_log(list_file), Mclick()],
 )
 btn_add_file2.place(x=490, y=3, width=125, height=35)
 
